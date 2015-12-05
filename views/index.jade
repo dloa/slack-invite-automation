@@ -3,22 +3,29 @@ html
   head
     meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    title Join the #{community} community on Slack!
+    meta(name="description", content="")
+    meta(name="author", content="Magics Group")
+    meta(name="keywords", content="Magics Group, Programming, Developer, Initiative, If Your Reading This: matbee's body is ready.")
+
+    title #{community} Are you one with the Melon?
     link(href="css/style.css", rel="stylesheet", type="text/css")
     link(href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|Open+Sans:700italic,400,600,300,700,800", rel="stylesheet", type="text/css")
+    //
+      When hugging someone to whisper in their ears to creep them out.
+    // lowercase no spaces.
+    // Magics Group: Are you one with the Melon?
   body
     #wrapper
       .main
         .header
-          h1
-            strong #{community}
-          h2 Enter your email below to join #{community} on slack!
+          h1 Why hello there.
+          h2 You've stumbled upon a door where your mind is the #[a(style="color: white; font-weight: 300; cursor: default; text-decoration: none" target="_blank" href="http://www.erh.noaa.gov/er/cae/svrwx/nsslhail3.jpg") key]#[a(style="color: white; font-weight: 300; cursor: default; text-decoration: none" target="_blank" href="https://i.imgur.com/36OwSMF.png") .]
         .content
           .information
             form(method="POST", action="/invite")#join-form.form
               input(type="text", name="email", placeholder="Enter Your Email Address")#slack-email.field
               if tokenRequired
-                input(type="text", name="token", placeholder="Enter the invite token you were given")#slack-token.field
+                input(type="text", name="token", placeholder="Enter invite key")#slack-token.field
               input(type="submit", value="Join").submit
     script.
       var tokenRequired = #{tokenRequired};
