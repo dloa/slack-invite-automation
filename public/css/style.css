@@ -91,6 +91,7 @@ display: block;
 }
 
 .field{
+outline: none;
 background: url(../images/field.png) repeat;
 width: 448px;
 -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px;

@@ -23,15 +23,16 @@ html
         .content
           .information
             form(method="POST", action="/invite")#join-form.form
-              input(type="text", name="email", placeholder="Enter Your Email Address")#slack-email.field
+              input(type="text", name="email", placeholder="Enter Your Email Address")#email.field
               if tokenRequired
-                input(type="text", name="token", placeholder="Enter invite key")#slack-token.field
+                input(type="text", name="token", placeholder="Enter invite key")#token.field
               input(type="submit", value="Join").submit
+    script(src='js/particles.js')
     script.
       var tokenRequired = #{tokenRequired};
       var form = document.getElementById('join-form');
-      var email = document.getElementById('slack-email');
-      var token = document.getElementById('slack-token');
+      var email = document.getElementById('email');
+      var token = document.getElementById('token');
       form.addEventListener('submit', function(evt) {
         if (!email.value) {
           evt.preventDefault();
