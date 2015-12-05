@@ -12,3 +12,8 @@ html
       .main
         .header
           h1 !{message}
+    script(src='js/particles.js')
+    script.
+      particlesJS.load('particles-js', 'particlesjs-config.json', function() {
+        console.log('callback - particles.js config loaded');
+      });
