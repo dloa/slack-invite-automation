@@ -12,14 +12,14 @@ html
     link(href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|Open+Sans:700italic,400,600,300,700,800", rel="stylesheet", type="text/css")
     //
       Venture to a time where horses flew and men slew might beast.
-    // lowercase no spaces.
+    // tlc(camelcase);
     // Magics Group: Are you one with the Melon?
   body
     #particles-js(style="z-index: -1; position: fixed; width: 100vw; height: 100vh;")
     #wrapper
       .main
         .header 
-          h1 #[a(style="color: white; font-weight: 300; cursor: default; text-decoration: none" target="_blank"  href="http://pastebin.com/raw.php?i=7UknGBQz") Why] hello there.
+          h1 Why hello there.
           h2 You've stumbled upon a door where your mind is the key#[a(style="color: white; font-weight: 300; cursor: default; text-decoration: none" target="_blank" href="https://i.imgur.com/36OwSMF.png") .]
         .content
           .information
@@ -34,6 +34,9 @@ html
       var form = document.getElementById('join-form');
       var email = document.getElementById('email');
       var token = document.getElementById('token');
+      function tlc(s){
+        return s.toLowerCase();
+      }
       form.addEventListener('submit', function(evt) {
         if (!email.value) {
           evt.preventDefault();
