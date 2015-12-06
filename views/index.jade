@@ -10,10 +10,6 @@ html
     title Are you one with the Melon?
     link(href="css/style.css", rel="stylesheet", type="text/css")
     link(href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|Open+Sans:700italic,400,600,300,700,800", rel="stylesheet", type="text/css")
-    // "The riddle speaks between the lines, Red is still the answer"
-    // "Diamonds, all azure in nature"
-    // DE:AD:BE:EF
-
     // Magics Group: Are you one with the Melon?
   body
     #particles-js(style="z-index: -1; position: fixed; width: 100vw; height: 100vh;")
@@ -21,31 +17,9 @@ html
       .main
         .header
           h1 Magics Group#[a(style="color: white; font-weight: 300; cursor: default; text-decoration: none" alt="88" target="_blank" href="images/enc_destiny.png") .]
-          h2 We Make Cool Stuff. Can You Find The Key?
-        .content
-          .information
-            form(method="POST", action="/invite")#join-form.form
-              input(type="text", name="email", placeholder="Enter Your Email Address")#email.field
-              if tokenRequired
-                input(type="text", name="token", placeholder="Enter Invite Key")#token.field
-              input(type="submit", value="Join").submit
+          h2 We Make Cool Stuff.    
     script(src='js/particles.js')
     script.
-      var tokenRequired = #{tokenRequired};
-      var form = document.getElementById('join-form');
-      var email = document.getElementById('email');
-      var token = document.getElementById('token');
-      function tlc(s){
-        return s.toLowerCase();
-      }
-      form.addEventListener('submit', function(evt) {
-        if (!email.value) {
-          evt.preventDefault();
-        }
-        if (tokenRequired && !token.value) {
-          evt.preventDefault();
-        }
-      });
       particlesJS.load('particles-js', 'particlesjs-config.json', function() {
         console.log('callback - particles.js config loaded');
       });
