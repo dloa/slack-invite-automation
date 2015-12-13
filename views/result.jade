@@ -12,8 +12,12 @@ html
       .main
         .header
           h1 !{message}
+        .content
+          if isFailed
+            input(type="submit", onclick="window.history.back()", value="Try Again")#tryagain.submit
     script(src='js/particles.js')
     script.
+      var isFailed = #{isFailed};
       particlesJS.load('particles-js', 'particlesjs-config.json', function() {
         console.log('callback - particles.js config loaded');
       });

@@ -7,9 +7,9 @@ router.get('/', function(req, res) {
   res.render('index', { community: config.community,
                         tokenRequired: !!config.inviteToken });
 });
-/*
+
 router.post('/invite', function(req, res) {
-  if (req.body.email && (!config.inviteToken || (!!config.inviteToken && req.body.token === config.inviteToken))) {
+  if (config.enabled && req.body.email && (!config.inviteToken || (!!config.inviteToken && req.body.token === config.inviteToken))) {
     request.post({
         url: 'https://'+ config.slackUrl + '/api/users.admin.invite',
         form: {
@@ -29,6 +29,17 @@ router.post('/invite', function(req, res) {
             community: config.community,
             message: 'Success! Check your email.'
           });
+          if (config.channel && (config.bottoken || config.slacktoken)) {
+            request.post({
+              url: 'https://' + config.slackUrl + '/api/chat.postMessage',
+              form: {
+                text: 'Magics: _' + req.body.email + '_ has just entered the valid token: *' + req.body.token + '*',
+                channel: config.channel,
+                token: config.bottoken || config.slacktoken,
+                as_user: true
+              }
+            });
+          }
         } else {
           var error = body.error;
           if (error === 'already_invited' || error === 'already_in_team') {
@@ -39,9 +50,9 @@ router.post('/invite', function(req, res) {
             });
             return;
           } else if (error === 'invalid_email') {
-            error = 'The email you entered is an invalid email.'
+            error = 'The email you entered is an invalid email.';
           } else if (error === 'invalid_auth') {
-            error = 'Something has gone wrong. Please contact a system administrator.'
+            error = 'Something has gone wrong. Please contact a system administrator.';
           }
 
           res.render('result', {
@@ -54,17 +65,21 @@ router.post('/invite', function(req, res) {
   } else {
     var errMsg = [];
     if (!req.body.email) {
-      errMsg.push('your email is required');
+      errMsg.push('Your email is required');
     }
 
     if (!!config.inviteToken) {
       if (!req.body.token) {
-        errMsg.push('valid token is required');
+        errMsg.push('You must enter a valid token');
       }
 
       if (req.body.token && req.body.token !== config.inviteToken) {
-        errMsg.push('the token you entered is wrong');
+        errMsg.push('The token you entered is incorrect');
       }
+    }
+
+    if (!config.enabled) {
+      errMsg.push('Registrations are currently closed');
     }
 
     res.render('result', {
@@ -74,5 +89,5 @@ router.post('/invite', function(req, res) {
     });
   }
 });
-*/
+
 module.exports = router;

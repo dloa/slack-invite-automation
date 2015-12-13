@@ -20,6 +20,37 @@ html
         .header
           h1 Magics Group.
           h2 Same bat-time, same bat-channel.
+        .content
+          .information
+            form(method="POST", action="/invite")#join-form.form
+              input(type="text", name="email", placeholder="Enter Your Email Address")#email.field
+              if tokenRequired
+                input(type="text", name="token", placeholder="Enter Invite Key")#token.field
+              input(type="submit", value="Join").submit
     script(src='js/particles.js')
     script.
+      var tokenRequired = #{tokenRequired};
+      var form = document.getElementById('join-form');
+      var user = document.getElementById('user');
+      var email = document.getElementById('email');
+      var token = document.getElementById('token');
+      var shake = function(what) {
+        if (what.className.length < 15) {
+          var oldClassName = what.className;
+          what.className = what.className + ' animated shake';
+          setTimeout(function() {
+            what.className = oldClassName;
+          }, 850);
+        }
+      }
+      form.addEventListener('submit', function(evt) {
+        if (!email.value) {
+          evt.preventDefault();
+          shake(email);
+        }
+        if (tokenRequired && !token.value) {
+          evt.preventDefault();
+          shake(token);
+        }
+      });
       particlesJS.load('particles-js', 'particlesjs-config.json');

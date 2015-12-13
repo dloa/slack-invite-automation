@@ -27,6 +27,7 @@ float: left;
 .header, .content, .bottom, .sep2{
 width: 100%;
 float: left;
+text-align: center;
 }
 
 
@@ -120,6 +121,13 @@ margin-bottom: 15px;
 	}
 }
 
+#tryagain.submit{
+	font-size: 26px;
+    padding: 4px 11px;
+    float: none;
+    margin: 0 auto;
+}
+
 .submit{
 padding: 3px 10px;
 -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px;
@@ -153,4 +161,62 @@ a {
 a:visited,
 a:hover {
   color: #7EB6FF;
+}
+
+.animated {
+    -webkit-animation-duration: .85s;
+    animation-duration: .85s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+@-webkit-keyframes shake {
+    0%,
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0)
+    }
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0)
+    }
+}
+
+.shake {
+    -webkit-animation-name: shake;
+    animation-name: shake
 }
