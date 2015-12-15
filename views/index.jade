@@ -16,19 +16,26 @@ html
   body
     #particles-js(style="z-index: -1; position: fixed; width: 100vw; height: 100vh;")
     #wrapper
-      .main
-        .header
-          h1 Magics Group.
-          h2 Same bat-time, same bat-channel.
-        .content
-          .information
-            form(method="POST", action="/invite")#join-form.form
-              input(type="text", name="email", placeholder="Enter Your Email Address")#email.field
-              if tokenRequired
-                input(type="text", name="token", placeholder="Enter Invite Key")#token.field
-              input(type="submit", value="Join").submit
+      if !enabled
+        .main
+          .header
+            h1 Magics Group.
+            h2 Same bat-time, same bat-channel.
+      if enabled
+        .main
+          .header
+            h1 Magics Group.
+            h2 Can you find the key?
+          .content
+            .information
+              form(method="POST", action="/invite")#join-form.form
+                input(type="text", name="email", placeholder="Enter Your Email Address")#email.field
+                if tokenRequired
+                  input(type="text", name="token", placeholder="Enter Invite Key")#token.field
+                input(type="submit", value="Join").submit
     script(src='js/particles.js')
     script.
+      var enabled = #{enabled}
       var tokenRequired = #{tokenRequired};
       var form = document.getElementById('join-form');
       var user = document.getElementById('user');
