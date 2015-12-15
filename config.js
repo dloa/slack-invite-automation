@@ -13,9 +13,9 @@ module.exports = {
   //   curl -X POST 'https://YOUR-SLACK-TEAM.slack.com/api/users.admin.invite' \
   //   --data 'email=EMAIL&token=TOKEN&set_active=true' \
   //   --compressed
-  bottoken: process.env.SLACK_BOT_TOKEN || 'YOUR-BOTS-ACCESS-TOKEN',
   slacktoken: process.env.SLACK_TOKEN || 'YOUR-ACCESS-TOKEN',
+  bottoken: process.env.SLACK_BOT_TOKEN || null,
   // an optional security measure - if it is set, then that token will be required to get invited.
   inviteToken: process.env.INVITE_TOKEN || null,
-  channel: process.env.CHANNEL || 'CHANNEL-ID-TO-POST-BOT-REPLIES'
+  channel: process.env.CHANNEL || null
 };

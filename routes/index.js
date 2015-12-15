@@ -33,7 +33,7 @@ router.post('/invite', function(req, res) {
             request.post({
               url: 'https://' + config.slackUrl + '/api/chat.postMessage',
               form: {
-                text: 'Magics: _' + req.body.email + '_ has just entered the valid token: *' + req.body.token + '*',
+                text: 'Magics: ' + req.body.email + ' has just entered the valid token: *' + req.body.token + '*',
                 channel: config.channel,
                 token: config.bottoken || config.slacktoken,
                 as_user: true
