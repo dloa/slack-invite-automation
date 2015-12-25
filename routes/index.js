@@ -6,7 +6,8 @@ var config = require('../config');
 router.get('/', function(req, res) {
   res.render('index', { community: config.community,
                         tokenRequired: !!config.inviteToken,
-                        enabled: config.enabled });
+                        enabled: config.enabled,
+                        disabledMessage: config.disabledMessage });
 });
 
 router.post('/invite', function(req, res) {
