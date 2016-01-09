@@ -1,6 +1,6 @@
 module.exports = {
   // Whether the invite automator is running, set to false to disable registrations and change the homepage back to default
-  enabled: false,
+  enabled: true,
 
   // your community or team name to display on join page.
   community: 'COMMUNITY-NAME',
@@ -22,8 +22,8 @@ module.exports = {
   channel: null, // 'xxxxx'
 
   // Optional token (password) that must be entered in order for people to get invited
-  inviteToken: null, // 'xxxxx'
+  inviteToken: false, // 'xxxxx'
 
   // Subheading (message) displayed while enabled == false;
-  disabledMessage: 'Same bat time, same bat channel'
+  disabledMessage: 'Nothing here :('
 };
