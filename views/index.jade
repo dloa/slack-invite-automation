@@ -3,29 +3,25 @@ html
   head
     meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="description", content="May the secret sauce lead you to the keys to which you desire.")
-    meta(name="author", content="Magics Group")
-    meta(name="keywords", content="Magics Group, Programming, Developer, Puzzles, Initiative, If You're Reading This: Analprobes?")
+    meta(name="description", content="The Decentralized Library of Alexandria is made with love by artists & fans who want fair and transparent access to media and information.  A new economy is being created that is healthy for the whole ecosystem.")
+    meta(name="author", content="Decentralized Library of Alexandria")
+    meta(name="keywords", content="")
 
-    title We are gonna need a bigger melon.
+    title DLOA Slack
     link(href="css/style.css", rel="stylesheet", type="text/css")
     link(href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,700italic|Open+Sans:700italic,400,600,300,700,800", rel="stylesheet", type="text/css")
-    //
-      Wishing everyone the finest of holidays. -Magics Group
-      https://www.youtube.com/watch?v=LS-ErOKpO4E
   body
-    #particles-js(style="z-index: -1; position: fixed; width: 100vw; height: 100vh;")
     #wrapper
       if !enabled
         .main
           .header
-            h1 Magics Group.
+            h1 Decentralized Library of Alexandria
             h2= disabledMessage
       if enabled
         .main
           .header
-            h1 Magics Group.
-            h2 Can you find the key?
+            h1 Decentralized Library of Alexandria
+            h2 "the force is strong with this one" 
           .content
             .information
               form(method="POST", action="/invite")#join-form.form
@@ -33,7 +29,6 @@ html
                 if tokenRequired
                   input(type="text", name="token", placeholder="Enter Invite Key")#token.field
                 input(type="submit", value="Join").submit
-    script(src='js/particles.js')
     script.
       var enabled = #{enabled}
       var tokenRequired = #{tokenRequired};
@@ -62,4 +57,3 @@ html
           }
         });
       }
-      particlesJS.load('particles-js', 'particlesjs-config.json');
